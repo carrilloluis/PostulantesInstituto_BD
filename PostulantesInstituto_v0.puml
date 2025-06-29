@@ -1,0 +1,51 @@
+@startuml PI1
+	hide circle
+	skin rose
+	hide empty members
+
+	entity CarreraTécnicoProfesional {
+		*id : UUID
+		denominación : VARCHAR
+		estado : INTEGER 
+	}
+	
+	entity PeríodoAcadémico {
+		*id : UUID
+		período : CHAR
+		año : CHAR
+		estado : INTEGER
+	}
+	
+	entity ModalidadAdmisión {
+		*id : UUID
+		denominación : VARCHAR
+		estado : INTEGER 
+	}
+	entity DatosContactoPostulante {
+		*id : UUID
+		nombres : VARCHAR
+		apellidosPaternos : VARCHAR
+		apellidosMaternos : VARCHAR
+		género : CHAR
+		documentoIdentidad : CHAR
+		fechaNacimiento : DATE
+		creado : DATETIME
+		modificado : CHAR
+		estado : INTEGER
+	}
+	entity Postulante {
+		*id : UUID
+		idContacto : CHAR
+		idCarreraTécnica : CHAR
+		idPeríodoAcadémico : CHAR
+		idModalidadAdmisión : CHAR
+		asistenciaExamen : BOOLEAN
+		puntaje : INTEGER
+		condiciónIngreso : BOOLEAN
+		estado : INTEGER
+	}
+	Postulante ||-u-|| DatosContactoPostulante
+	Postulante ||-d-|| CarreraTécnicoProfesional
+	Postulante ||-l-|| PeríodoAcadémico
+	Postulante ||-r-|| ModalidadAdmisión
+@enduml
